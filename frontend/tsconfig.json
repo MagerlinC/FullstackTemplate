@@ -2,7 +2,6 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
-
     "skipLibCheck": true,
     "noEmit": true,
     "incremental": true,
