@@ -1,6 +1,6 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
+    "strict": true,
     "baseUrl": "./",
     "paths": {
       "@abstractions/*": ["../abstractions/*"]
@@ -16,5 +16,6 @@
     "incremental": true,
     "skipLibCheck": true,
     "outDir": "./dist"
-  }
+  },
+  "exclude": ["node_modules"]
 }
