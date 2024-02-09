@@ -1,6 +1,10 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@abstractions/*": ["../abstractions/*"]
+    },
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,

@@ -3,8 +3,5 @@
     "strict": true,
     "baseUrl": "./"
   },
-  "paths": {
-    "~/*": ["./*"]
-  },
-  "exclude": ["node_modules"]
+  "exclude": ["frontend/node_modules", "backend/node_modules"]
 }

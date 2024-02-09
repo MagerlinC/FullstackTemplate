@@ -8,4 +8,7 @@ export class ExampleEntity {
 
   @Column()
   name: string;
+
+  @Column()
+  createdAt: Date;
 }

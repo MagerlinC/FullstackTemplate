@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { GetExampleResponse } from 'abstractions/ExampleDomain/Get';
-import { PostExampleRequest } from 'abstractions/ExampleDomain/Post';
+import { PostExampleRequest } from '@abstractions/ExampleDomain/Post';
 import { ExampleEntity } from './Entities/ExampleEntity';
 import { Repository } from 'typeorm';
 
@@ -12,12 +11,13 @@ export class ExampleService {
     private readonly exampleRepository: Repository<ExampleEntity>,
   ) {}
 
-  getExamples(): Promise<GetExampleResponse> {
+  getExamples(): Promise<ExampleEntity[]> {
     return this.exampleRepository.find();
   }
 
   createExample(req: PostExampleRequest): Promise<ExampleEntity> {
-    const example = this.exampleRepository.create(req);
+    const now = new Date();
+    const example = this.exampleRepository.create({ ...req, createdAt: now });
     return this.exampleRepository.save(example);
   }
 }

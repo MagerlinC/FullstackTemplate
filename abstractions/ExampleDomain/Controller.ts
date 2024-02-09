@@ -1,9 +1,8 @@
 import { APIBodylessFunction, APIFunction } from 'abstractions/APIFunctions';
-import { GetExampleResponse } from './Get';
+import { ExampleDTO } from './DTO';
 import { PostExampleRequest } from './Post';
-import { ExampleEntity } from 'backend/src/ExampleDomain/Entities/ExampleEntity';
 
 export interface IExampleController {
-  getExamples: APIBodylessFunction<GetExampleResponse>;
-  postExample: APIFunction<PostExampleRequest, ExampleEntity>;
+  getExamples: APIBodylessFunction<ExampleDTO[]>;
+  postExample: APIFunction<PostExampleRequest, ExampleDTO>;
 }
