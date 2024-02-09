@@ -1,4 +1,4 @@
-import { APIBodylessFunction, APIFunction } from 'abstractions/APIFunctions';
+import { APIBodylessFunction, APIFunction } from '../APIFunctions';
 import { ExampleDTO } from './DTO';
 import { PostExampleRequest } from './Post';
 
