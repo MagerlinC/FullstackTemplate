@@ -3,12 +3,24 @@
 import { ExampleDTO } from '@abstractions/ExampleDomain/DTO';
 import React from 'react';
 import { useExamples } from 'src/queries/exampleQueries';
+import styled from 'styled-components';
+
+const ExamplesListWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-gap: 8px;
+`;
+
+const ExampleWrapper = styled.div`
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid white;
+`;
 
 export default function ExamplesList({ examples }: { examples: ExampleDTO[] }) {
   const { data: exampleData } = useExamples(examples);
-
   return (
-    <main style={{ maxWidth: 1200, marginInline: 'auto', padding: 20 }}>
+    <ExamplesListWrapper>
       {
         <div
           style={{
@@ -18,10 +30,10 @@ export default function ExamplesList({ examples }: { examples: ExampleDTO[] }) {
           }}
         >
           {exampleData?.map((example) => (
-            <div>{example.name}</div>
+            <ExampleWrapper key={example.name}>{example.name}</ExampleWrapper>
           ))}
         </div>
       }
-    </main>
+    </ExamplesListWrapper>
   );
 }
