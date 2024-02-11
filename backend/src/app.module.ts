@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ExampleEntity } from './ExampleDomain/Entities/ExampleEntity';
+import { ExampleEntity } from './ExampleDomain/Entities/example.entity';
 import { ExampleService } from './ExampleDomain/example.service';
 import { ExampleController } from './ExampleDomain/example.controller';
 

@@ -1,6 +1,4 @@
-import { toConsumedResponse } from '@abstractions/APIFunctions';
-
-const BASE_URL = 'localhost:5000/';
+const BASE_URL = 'http://localhost:5000/';
 
 export async function getFromAPI<ResponseType>(path: string) {
   const headers = new Headers();
@@ -9,7 +7,8 @@ export async function getFromAPI<ResponseType>(path: string) {
     method: 'GET',
   };
   const response = await fetch(BASE_URL + path, req);
-  return toConsumedResponse(response.body as ResponseType, response.status);
+  const json = await response.json();
+  return json as ResponseType;
 }
 
 export async function postToAPI<RequestType, ResponseType>(
@@ -23,5 +22,6 @@ export async function postToAPI<RequestType, ResponseType>(
     body: JSON.stringify(body),
   };
   const response = await fetch(BASE_URL + path, request);
-  return toConsumedResponse(response.body as ResponseType, response.status);
+  const json = await response.json();
+  return json as ResponseType;
 }
