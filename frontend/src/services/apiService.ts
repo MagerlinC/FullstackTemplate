@@ -1,9 +1,13 @@
 const BASE_URL = 'http://localhost:5000/';
 
+const baseHeaders = new Headers({
+  Accept: 'application/json',
+  'content-type': 'application/json',
+});
+
 export async function getFromAPI<ResponseType>(path: string) {
-  const headers = new Headers();
   const req = {
-    headers: headers,
+    headers: baseHeaders,
     method: 'GET',
   };
   const response = await fetch(BASE_URL + path, req);
@@ -15,9 +19,8 @@ export async function postToAPI<RequestType, ResponseType>(
   path: string,
   body: RequestType,
 ) {
-  const headers = new Headers();
   const request = {
-    headers: headers,
+    headers: baseHeaders,
     method: 'POST',
     body: JSON.stringify(body),
   };

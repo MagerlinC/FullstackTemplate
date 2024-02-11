@@ -17,7 +17,12 @@ export class ExampleService {
 
   createExample(req: PostExampleRequest): Promise<ExampleEntity> {
     const now = new Date();
-    const example = this.exampleRepository.create({ ...req, createdAt: now });
+    console.log('NAME IS:');
+    console.log(req.name);
+    const example = this.exampleRepository.create({
+      ...req,
+      createdAt: now,
+    });
     return this.exampleRepository.save(example);
   }
 }
