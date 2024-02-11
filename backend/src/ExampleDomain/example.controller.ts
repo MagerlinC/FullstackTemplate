@@ -1,10 +1,13 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ExampleService } from './example.service';
-import { IExampleController } from '@abstractions/ExampleDomain/Controller';
+import {
+  EXAMPLE_DOMAIN_PATH,
+  IExampleController,
+} from '@abstractions/ExampleDomain/Controller';
 import { PostExampleRequest } from '@abstractions/ExampleDomain/Post';
 import { ExampleDTO } from '@abstractions/ExampleDomain/DTO';
 
-@Controller('example')
+@Controller(EXAMPLE_DOMAIN_PATH)
 export class ExampleController implements IExampleController {
   constructor(private readonly appService: ExampleService) {}
 

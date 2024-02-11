@@ -1,20 +1,21 @@
-import {
-  APIConsumedBodylessFunction,
-  APIConsumedFunction,
-} from '@abstractions/APIFunctions';
 import { ExampleDTO } from '@abstractions/ExampleDomain/DTO';
 import { getFromAPI, postToAPI } from './apiService';
 import { PostExampleRequest } from '@abstractions/ExampleDomain/Post';
+import {
+  EXAMPLE_DOMAIN_PATH,
+  GetExampleFunction,
+  PostExampleFunction,
+} from '@abstractions/ExampleDomain/Controller';
 
-const examplePath = 'example';
-
-export const getExamples: APIConsumedBodylessFunction<ExampleDTO[]> = () => {
-  return getFromAPI<ExampleDTO[]>(examplePath);
+export const getExamples: GetExampleFunction = () => {
+  return getFromAPI<ExampleDTO[]>(EXAMPLE_DOMAIN_PATH);
 };
 
-export const postExample: APIConsumedFunction<
-  PostExampleRequest,
-  ExampleDTO
-> = (request: PostExampleRequest) => {
-  return postToAPI<PostExampleRequest, ExampleDTO>(examplePath, request);
+export const postExample: PostExampleFunction = (
+  request: PostExampleRequest,
+) => {
+  return postToAPI<PostExampleRequest, ExampleDTO>(
+    EXAMPLE_DOMAIN_PATH,
+    request,
+  );
 };
