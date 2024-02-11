@@ -17,11 +17,11 @@ export const useExamples = () => {
 
 export const useCreateExample = (queryClient: QueryClient) => {
   return useMutation({
-    queryFn: (request: PostExampleRequest) => {
+    mutationFn: (request: PostExampleRequest) => {
       return postExample(request);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(exampleQueryKeys.all);
+      queryClient.invalidateQueries({ queryKey: exampleQueryKeys.all });
     },
   });
 };

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "strict": true,
+    "strictPropertyInitialization": false,
     "baseUrl": "./",
     "paths": {
       "@abstractions/*": ["../abstractions/*"]

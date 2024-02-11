@@ -1,6 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-// TODO: NestJS types missing in tsconfig?
 @Entity()
 export class ExampleEntity {
   @PrimaryGeneratedColumn()
