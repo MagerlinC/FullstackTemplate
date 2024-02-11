@@ -23,6 +23,13 @@ const CreateExample: React.FC = () => {
     if (name) {
       createExample({ name });
     }
+    setExampleDataName('');
+  };
+
+  const createOnEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      onCreateExample(exampleDataName);
+    }
   };
 
   return (
@@ -31,6 +38,7 @@ const CreateExample: React.FC = () => {
         placeholder="Input name for new example data"
         type="text"
         value={exampleDataName}
+        onKeyDown={createOnEnter}
         onChange={(e) => setExampleDataName(e.target.value)}
       />
       <button
