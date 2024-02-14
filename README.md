@@ -6,6 +6,18 @@
 
 This repo contains a full-stack mono-repo template using NextJS, React, NestJS and TypeORM. It is designed to share type declarations for endpoints and request/response types through a shared `abstractions` layer. It uses a Postgres DB run in a docker container, but the database can easily be swapped out for any other database supported by TypeORM.
 
+## Table of Contents
+
+- [The Example Repo](#example-repo)
+- [Project Structure](#project-structure)
+  - [Request Flow](#request-flow)
+- [Running the Example](#running-the-example)
+  - [Running the Postgres DB](#running-the-postgres-db)
+  - [Running the Backend](#running-the-backend)
+  - [Running the Frontend](#running-the-frontend)
+
+## The Example Repo
+
 The repo contains a single example domain, aptly named "ExampleDomain", containing a single entity type and two associated endpoints; one to fetch all entities and one to create a new entity.
 
 The frontend exposes a simple UI to fetch and create example entities by name.
@@ -19,6 +31,17 @@ This template contains the following core elements:
   - The backend also contains the TypeORM entities and migrations, which are not exposed
 - `/abstractions` contains shared types and interfaces used in both the frontend and backend
   - The abstractions layer defines interfaces for backend controllers, as well as the DTOs used between frontend and backend
+
+### Request Flow
+
+To get an overview of the end-to-end flow of this repo, an example request can be followed:
+
+- Frontend
+  - `CreateExample.ts` in the frontend uses the queries defined in `exampleQueries.ts` to send a request to the backend via `exampleService.ts`.
+- Backend
+  - The backend receives the request in `example.controller.ts` and uses the `example.service` to create a new `ExampleEntity` and store it in the DB
+
+Both of the above use request and response types defined in `abstractions`.
 
 ## Running the Example
 
