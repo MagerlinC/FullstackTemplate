@@ -8,7 +8,7 @@ This repo contains a full-stack mono-repo template using NextJS, React, NestJS a
 
 ## Table of Contents
 
-- [The Example Repo](#example-repo)
+- [The Example Repo](#the-example-domain)
 - [Project Structure](#project-structure)
   - [Request Flow](#request-flow)
 - [Running the Example](#running-the-example)
@@ -16,21 +16,23 @@ This repo contains a full-stack mono-repo template using NextJS, React, NestJS a
   - [Running the Backend](#running-the-backend)
   - [Running the Frontend](#running-the-frontend)
 
-## The Example Repo
+## The Example Domain
 
-The repo contains a single example domain, aptly named "ExampleDomain", containing a single entity type and two associated endpoints; one to fetch all entities and one to create a new entity.
+This repo contains a single example domain, aptly named "ExampleDomain", which demonstrates the full-stack control flow, including how types from the `abstractions` layer are shared and consumed between the `backend` and `frontend` applications (see [Project Structure](#project-structure)).
 
-The frontend exposes a simple UI to fetch and create example entities by name.
+It contains a single `ExampleEntity` with two associated endpoints; one to fetch all such entities, and one to create a new entity.
+
+The frontend exposes a simple UI to fetch and show entities, as well as allowing for the creation of example entities using the above endpoints.
 
 ## Project Structure
 
 This template contains the following core elements:
 
-- `/frontend` contains the NextJS fronten written in React
-- `/backend` contains the NestJS backend, which uses TypeORM over a Postgres DB
-  - The backend also contains the TypeORM entities and migrations, which are not exposed
-- `/abstractions` contains shared types and interfaces used in both the frontend and backend
-  - The abstractions layer defines interfaces for backend controllers, as well as the DTOs used between frontend and backend
+- `/abstractions` contains shared types and interfaces used to define the API between the frontend and the backend applications
+  - The `abstractions` layer defines interfaces for the backend controllers to implement, as well as request, response and DTO types used by both backend and frontend
+- `/frontend` contains the NextJS frontend application written in React
+- `/backend` contains the NestJS API, which uses TypeORM in conjunction with a Postgres DB
+  - This includes the TypeORM entities, whose types are not exposed outside the backend
 
 ### Request Flow
 
