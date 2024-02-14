@@ -2,9 +2,14 @@
 
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![NestJS](https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white)
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
-This repo contains a full-stack mono-repo template using NextJS, React, NestJS and TypeORM. It is designed to share type declarations for endpoints and request/response types through a shared `abstractions` layer. It uses a Postgres DB run in a docker container, but the database can easily be swapped out for any other database supported by TypeORM.
+This repo is a full-stack mono-repo template which uses an array of modern Typescript web development frameworks.
+
+It was designed with one goal in mind; to reduce the API declaration shared between backend and frontend into one source of truth, preventing schema drift and reducing duplication.
+
+This repo achives this by sharing type declarations for endpoints and request/response types across the stack through the type declarations defined in the shared `abstractions` folder.
 
 ## Table of Contents
 
@@ -29,10 +34,12 @@ The frontend exposes a simple UI to fetch and show entities, as well as allowing
 This template contains the following core elements:
 
 - `/abstractions` contains shared types and interfaces used to define the API between the frontend and the backend applications
-  - The `abstractions` layer defines interfaces for the backend controllers to implement, as well as request, response and DTO types used by both backend and frontend
+  - `abstractions` defines interfaces for the backend controllers to implement, as well as request, response and DTO types used by both backend and frontend
 - `/frontend` contains the NextJS frontend application written in React
 - `/backend` contains the NestJS API, which uses TypeORM in conjunction with a Postgres DB
   - This includes the TypeORM entities, whose types are not exposed outside the backend
+
+This repo also uses a Postgres DB run in a docker container, but the database can easily be swapped out for any other database supported by TypeORM.
 
 ### Request Flow
 
