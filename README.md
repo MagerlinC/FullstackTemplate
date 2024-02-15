@@ -34,8 +34,8 @@ The frontend exposes a simple UI to fetch and show entities, as well as allowing
 This template contains the following core elements:
 
 - `/abstractions` contains shared types and interfaces used to define the API between the frontend and the backend applications
-  - `abstractions` defines interfaces for the backend controllers to implement, as well as request, response and DTO types used by both backend and frontend
-- `/frontend` contains the NextJS frontend application written in React
+  - `/abstractions` defines interfaces for the backend controllers to implement, as well as request, response and DTO types used by both backend and frontend
+- `/frontend` contains the NextJS frontend application written in React. It uses ReactQuery and fetch to fetch data from the backend
 - `/backend` contains the NestJS API, which uses TypeORM in conjunction with a Postgres DB
   - This includes the TypeORM entities, whose types are not exposed outside the backend
 
@@ -46,7 +46,7 @@ This repo also uses a Postgres DB run in a docker container, but the database ca
 To get an overview of the end-to-end flow of this repo, an example request can be followed:
 
 - Frontend
-  - `CreateExample.ts` in the frontend uses the queries defined in `exampleQueries.ts` to send a request to the backend via `exampleService.ts`.
+  - `CreateExample.ts` in the frontend uses the ReactQuery queries defined in `exampleQueries.ts` to send a request to the backend via `exampleService.ts`.
 - Backend
   - The backend receives the request in `example.controller.ts` and uses the `example.service` to create a new `ExampleEntity` and store it in the DB
 
