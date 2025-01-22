@@ -1,5 +1,7 @@
 # Full-stack typescript template using shared type declarations
 
+**NB**: This repository contains a fairly manual approach to something which libraries like [tRPC](https://trpc.io/) solve on a much broader level these days. I've left this up because it was a fun exercise to come up with on my own, but I'd advise against taking inspiration from the below today if you're looking for a setup to implement.
+
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![NestJS](https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white)
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
